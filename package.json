@@ -1,7 +1,7 @@
 {
-  "name": "botkit-starter-slack",
-  "version": "0.0.2",
-  "description": "A starter kit for building a custom Slack bot with Botkit Studio",
+  "name": "theCount",
+  "version": "0.1.0",
+  "description": "A counting bot",
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
@@ -10,23 +10,20 @@
     "body-parser": "^1.15.2",
     "botkit": "^0.6",
     "debug": "^2.3.3",
-    "express": "^4.14.0",
-    "node-env-file": "^0.1.8"
+    "express": "^4.16.3",
+    "node-env-file": "^0.1.8",
+    "request": "^2.86.0"
   },
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/howdyai/botkit-starter-slack.git"
+    "url": "https://github.com/AFTERWAKE/theCount.git"
   },
-  "bugs": {
-    "url": "https://github.com/howdyai/botkit-starter-slack/issues"
-  },
-  "homepage": "https://github.com/howdyai/botkit-starter-slack",
+  "homepage": "https://github.com/AFTERWAKE/theCount",
   "keywords": [
-    "bots",
-    "chatbots",
-    "slack"
+    "slack",
+    "slack-bot"
   ],
-  "author": "ben@howdy.ai",
+  "author": "noahsiano@gmail.com",
   "license": "ISC"
 }
