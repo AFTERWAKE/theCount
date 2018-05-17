@@ -11,7 +11,6 @@ A counting bot
 var env = require('node-env-file');
 env(__dirname + '/.env');
 
-require('dotenv').config()
 var express = require('express')
 var request = require('request')
 var app = express()
