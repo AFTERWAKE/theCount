@@ -1,17 +1,24 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-           ______     ______     ______   __  __     __     ______
-          /\  == \   /\  __ \   /\__  _\ /\ \/ /    /\ \   /\__  _\
-          \ \  __<   \ \ \/\ \  \/_/\ \/ \ \  _"-.  \ \ \  \/_/\ \/
-           \ \_____\  \ \_____\    \ \_\  \ \_\ \_\  \ \_\    \ \_\
-            \/_____/   \/_____/     \/_/   \/_/\/_/   \/_/     \/_/
+      _            ______
+ _   | |          / _____)                 _
+| |_ | | _   ____| /      ___  _   _ ____ | |_
+|  _)| || \ / _  | |     / _ \| | | |  _ \|  _)
+| |__| | | ( (/ /| \____| |_| | |_| | | | | |__
+ \___|_| |_|\____)\______\___/ \____|_| |_|\___)
 
-
-This is a sample Slack bot built with Botkit.
-
+A counting bot
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 var env = require('node-env-file');
 env(__dirname + '/.env');
 
+require('dotenv').config()
+var express = require('express')
+var request = require('request')
+var app = express()
+
+app.get('/auth', (req, res) =>{
+    res.sendFile(__dirname + '/add_to_slack.html')
+})
 
 if (!process.env.clientId || !process.env.clientSecret || !process.env.PORT) {
   console.log('Error: Specify clientId clientSecret and PORT in environment');
@@ -50,4 +57,3 @@ var normalizedPath = require("path").join(__dirname, "skills");
 require("fs").readdirSync(normalizedPath).forEach(function(file) {
   require("./skills/" + file)(controller);
 });
-
