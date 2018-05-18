@@ -11,14 +11,6 @@ A counting bot
 var env = require('node-env-file');
 env(__dirname + '/.env');
 
-var express = require('express')
-var request = require('request')
-var app = express()
-
-app.get('/auth', (req, res) =>{
-    res.sendFile(__dirname + '/add_to_slack.html')
-})
-
 if (!process.env.clientId || !process.env.clientSecret || !process.env.PORT) {
   console.log('Error: Specify clientId clientSecret and PORT in environment');
   usage_tip();
@@ -35,26 +27,6 @@ var bot_options = {
     scopes: ['bot']
 };
 
-app.get('/auth/redirect', (req, res) =>{
-    var options = {
-        uri: 'https://slack.com/api/oauth.access?code='
-            +req.query.code+
-            '&client_id='+process.env.CLIENT_ID+
-            '&client_secret='+process.env.CLIENT_SECRET+
-            '&redirect_uri='+process.env.REDIRECT_URI,
-        method: 'GET'
-    }
-    request(options, (error, response, body) => {
-        var JSONresponse = JSON.parse(body)
-        if (!JSONresponse.ok){
-            console.log(JSONresponse)
-            res.send("Error encountered: \n"+JSON.stringify(JSONresponse)).status(200).end()
-        }else{
-            console.log(JSONresponse)
-            res.send("Success!")
-        }
-    })
-})
 
 bot_options.json_file_store = __dirname + '/.data/db/'; // store user data in a simple JSON format
 
