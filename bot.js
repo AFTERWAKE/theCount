@@ -24,7 +24,7 @@ var bot_options = {
     clientId: process.env.clientId,
     clientSecret: process.env.clientSecret,
     studio_token: process.env.studio_token,
-    // debug: true,
+    debug: true,
     scopes: ['bot']
 };
 
